@@ -9,7 +9,7 @@ const qa = [
   "Test Automation",
 ]
 
-const automation = ["Playwright", "Cypress", "Selenium", "Katalon"]
+const automation = ["Playwright", "Cypress", "Selenium"]
 
 function Tree({ title, items }: { title: string; items: string[] }) {
   return (

@@ -16,9 +16,9 @@ const roles = [
     title: "Software QA Specialist",
     period: "2023 – 2025",
     points: [
-      "Led test strategy and automation for core product releases.",
-      "Built and maintained Playwright end-to-end and API test suites.",
-      "Partnered with developers to shift quality left and reduce escaped defects.",
+      "Led test planning and execution for core product releases.",
+      "Created and maintained functional, regression, and API test cases.",
+      "Collaborated with developers to improve product quality and reduce defects.",
     ],
   },
   {
