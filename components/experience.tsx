@@ -23,12 +23,12 @@ const roles = [
   },
   {
     company: "ComServices",
-    title: "QA Tester",
+    title: "QA Tester - Freelance",
     period: "2020 – 2021",
     points: [
-      "Executed manual functional and regression testing across web applications.",
-      "Authored detailed test cases and reproducible bug reports.",
-      "Performed database validation with SQL to verify data integrity.",
+      "Performed manual functional, regression, and exploratory testing to identify defects and ensure application quality..",
+      "Created and executed test cases, documented bugs, and collaborated with developers to verify fixes and maintain product reliability.",
+      "Supported web application quality assurance by validating features, user workflows, and edge cases across different environments.",
     ],
   },
 ]
