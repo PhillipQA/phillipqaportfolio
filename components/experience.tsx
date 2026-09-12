@@ -21,6 +21,16 @@ const roles = [
       "Performed database validation with SQL to verify data integrity.",
     ],
   },
+  {
+    company: "ComServices",
+    title: "QA Tester",
+    period: "2020 – 2021",
+    points: [
+      "Executed manual functional and regression testing across web applications.",
+      "Authored detailed test cases and reproducible bug reports.",
+      "Performed database validation with SQL to verify data integrity.",
+    ],
+  },
 ]
 
 export function Experience() {
