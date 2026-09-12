@@ -6,9 +6,9 @@ const roles = [
     title: "Business Analyst (Promoted from Software QA Specialist)",
     period: "2025 – Present",
     points: [
-      "Led test strategy and automation for core product releases.",
-      "Built and maintained Playwright end-to-end and API test suites.",
-      "Partnered with developers to shift quality left and reduce escaped defects.",
+      "Gathered and analyzed business requirements from stakeholders.",
+      "Created process flows, documentation, and acceptance criteria for development teams",
+      "Collaborated with QA and developers to validate requirements and ensure solutions met business needs.",
     ],
   },,
   {
@@ -36,10 +36,10 @@ const roles = [
     title: "QA Tester - Freelance",
     period: "2020 – 2021",
     points: [
-      "Performed manual functional, regression, and exploratory testing to identify defects and ensure application quality..",
-      "Created and executed test cases, documented bugs, and collaborated with developers to verify fixes and maintain product reliability.",
-      "Supported web application quality assurance by validating features, user workflows, and edge cases across different environments.",
-    ],
+  "Performed functional, regression, and exploratory testing.",
+  "Created test cases, documented bugs, and verified fixes.",
+  "Validated web features, workflows, and edge cases.",
+],
   },
 ]
 
