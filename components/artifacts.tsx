@@ -17,7 +17,7 @@ const artifacts = [
   {
     label: "Test Cases",
     icon: FileCheck2,
-    href: "https://docs.google.com/spreadsheets/d/11fp6ExztSBAeXmGcuvsLSa1rbYYZ-j5iUE3TjDqIzOk/edit?usp=drive_link",
+    href: "https://docs.google.com/spreadsheets/d/1hd9PTq0pAyuasOcS5uQaAEqLuxphuavxmOanE3mfxbU/edit?usp=drive_link",
   },
   {
     label: "Bug Reports",
