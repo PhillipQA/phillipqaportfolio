@@ -22,7 +22,7 @@ const artifacts = [
   {
     label: "Bug Reports",
     icon: Bug,
-    href: "https://docs.google.com/document/d/1nLQJmRZeVgZgYcwn2gei0ukE-sV2aNKj26LYC--vgu8/edit?usp=drive_link,
+    href: "https://docs.google.com/document/d/1nLQJmRZeVgZgYcwn2gei0ukE-sV2aNKj26LYC--vgu8/edit?usp=drive_link",
   },
   {
     label: "API Collections",
