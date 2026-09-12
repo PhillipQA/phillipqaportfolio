@@ -2,8 +2,8 @@ import { SectionHeading } from "@/components/section-heading"
 import { Code2, Briefcase, Mail, ArrowUpRight } from "lucide-react"
 
 const links = [
-  { label: "GitHub", value: "github.com/pvcabalo", href: "#", icon: Code2 },
-  { label: "LinkedIn", value: "linkedin.com/in/pvcabalo", href: "#", icon: Briefcase },
+  { label: "GitHub", value: "github.com/pvcabalo", href: "https://github.com/PhillipQA/playwright-automation-project", icon: Code2 },
+  { label: "LinkedIn", value: "linkedin.com/in/pvcabalo", href: "https://www.linkedin.com/in/pcabalo/", icon: Briefcase },
   { label: "Email", value: "phillip.cabalo@email.com", href: "mailto:phillip.cabalo@email.com", icon: Mail },
 ]
 

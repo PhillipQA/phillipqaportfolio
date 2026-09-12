@@ -3,6 +3,16 @@ import { SectionHeading } from "@/components/section-heading"
 const roles = [
   {
     company: "iRipple",
+    title: "Business Analyst (Promoted from Software QA Specialist)",
+    period: "2025 – Present",
+    points: [
+      "Led test strategy and automation for core product releases.",
+      "Built and maintained Playwright end-to-end and API test suites.",
+      "Partnered with developers to shift quality left and reduce escaped defects.",
+    ],
+  },,
+  {
+    company: "iRipple",
     title: "Software QA Specialist",
     period: "2023 – 2025",
     points: [
