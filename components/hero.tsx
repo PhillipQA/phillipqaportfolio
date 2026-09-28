@@ -28,12 +28,13 @@ export function Hero() {
           Phillip Val Cabalo
         </h1>
         <p className="mt-3 text-pretty text-lg text-muted-foreground sm:text-xl">
-          Software QA Engineer — Manual Testing, Automation, API Testing &amp; SQL
+          Software QA Specialist * Test Engineer — Manual Testing, Automation, API Testing &amp; SQL
         </p>
         <p className="mt-5 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
           I break things on purpose so users never have to. 5+ years designing test strategies,
           automating end-to-end suites, and validating APIs and databases to ship software with
-          confidence.
+          confidence. I help teams deliver reliable digital products through quality assurance, 
+          test automation and a user-centered mindset.
         </p>
 
         <div className="mt-8 max-w-xl rounded-lg border border-border bg-card font-mono text-sm shadow-sm">
