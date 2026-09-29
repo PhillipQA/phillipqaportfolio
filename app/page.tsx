@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { Expertise } from "@/components/expertise"
 import { Projects } from "@/components/projects"
+import { TestLab } from "@/components/test-lab"
 import { Artifacts } from "@/components/artifacts"
 import { Experience } from "@/components/experience"
 import { Contact } from "@/components/contact"
@@ -15,6 +16,7 @@ export default function Page() {
         <Hero />
         <Expertise />
         <Projects />
+        <TestLab />
         <Artifacts />
         <Experience />
         <Contact />

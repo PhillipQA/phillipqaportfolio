@@ -3,6 +3,7 @@ import { TerminalSquare } from "lucide-react"
 const nav = [
   { label: "expertise", href: "#expertise" },
   { label: "projects", href: "#projects" },
+  { label: "test lab", href: "#test-lab" },
   { label: "artifacts", href: "#artifacts" },
   { label: "experience", href: "#experience" },
   { label: "contact", href: "#contact" },

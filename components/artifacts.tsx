@@ -56,7 +56,7 @@ export function Artifacts() {
     <section id="artifacts" className="border-b border-border">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
         <SectionHeading
-          index="03"
+          index="04"
           title="Artifacts & Deliverables"
           subtitle="Examples of the documentation and evidence I create across BA and QA work"
         />

@@ -60,6 +60,11 @@ const projects: Project[] = [
         href: "https://github.com/PhillipQA/playwright-automation-project",
         icon: Code2,
       },
+      {
+        label: "Run live tests",
+        href: "#test-lab",
+        icon: Workflow,
+      },
     ],
   },
   {
