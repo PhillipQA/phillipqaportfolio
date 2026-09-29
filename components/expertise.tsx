@@ -1,15 +1,31 @@
 import { SectionHeading } from "@/components/section-heading"
 
-const qa = [
-  "Manual Testing",
-  "Functional Testing",
-  "Regression Testing",
-  "API Testing",
-  "Database Testing",
-  "Test Automation",
+const businessAnalysis = [
+  "Requirements Gathering",
+  "BRD / FSD Documentation",
+  "Process & Workflow Mapping",
+  "Acceptance Criteria",
+  "Requirements Traceability",
+  "Stakeholder / Dev Coordination",
 ]
 
-const automation = ["Playwright", "Cypress", "Selenium"]
+const quality = [
+  "Manual & Exploratory Testing",
+  "Functional & Regression Testing",
+  "UAT Support",
+  "API Testing",
+  "SQL / Data Validation",
+  "Defect Analysis & Re-testing",
+]
+
+const technical = [
+  "Playwright + TypeScript",
+  "Postman / REST APIs",
+  "Supabase / PostgreSQL",
+  "Git / GitHub",
+  "AI-assisted Document Workflows",
+  "Gmail / Discord Integrations",
+]
 
 function Tree({ title, items }: { title: string; items: string[] }) {
   return (
@@ -34,15 +50,16 @@ export function Expertise() {
   return (
     <section id="expertise" className="border-b border-border">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-        <SectionHeading index="01" title="Expertise" subtitle="What I bring to a quality team" />
-        <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
-          <Tree title="qa-expertise" items={qa} />
-          <Tree title="automation" items={automation} />
+        <SectionHeading index="01" title="Expertise" subtitle="From requirements to release validation" />
+        <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+          <Tree title="business-analysis" items={businessAnalysis} />
+          <Tree title="quality-assurance" items={quality} />
+          <Tree title="technical-toolkit" items={technical} />
         </div>
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Comfortable across the full quality lifecycle — from writing test plans and exploratory
-          manual testing to building maintainable automation frameworks and validating data at the
-          database layer.
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          I work across the delivery lifecycle: clarifying business intent, turning it into structured
+          requirements, validating implementation, documenting defects and decisions, and automating
+          repeatable checks when automation improves feedback speed and consistency.
         </p>
       </div>
     </section>

@@ -15,15 +15,8 @@ if (isGithubActions && process.env.GITHUB_REPOSITORY) {
 }
 
 const nextConfig = {
-  // Produces a plain static site (an `out/` folder of HTML/CSS/JS) instead of
-  // a Node server, which is what GitHub Pages can actually host.
   output: 'export',
-  // Static export doesn't have Next's rewrite engine, so every route needs its
-  // own index.html for GitHub Pages to serve it correctly.
   trailingSlash: true,
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     unoptimized: true,
   },

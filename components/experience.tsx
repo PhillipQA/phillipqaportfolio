@@ -6,19 +6,19 @@ const roles = [
     title: "Business Analyst (Promoted from Software QA Specialist)",
     period: "2025 – Present",
     points: [
-      "Gathered and analyzed business requirements from stakeholders.",
-      "Created process flows, documentation, and acceptance criteria for development teams",
-      "Collaborated with QA and developers to validate requirements and ensure solutions met business needs.",
+      "Gather and analyze business requirements, workflows, constraints, and stakeholder needs.",
+      "Translate requirements into process flows, functional documentation, acceptance criteria, and implementation-ready details.",
+      "Coordinate with developers and QA throughout delivery to clarify scope, validate behavior, and reduce requirement gaps during UAT.",
     ],
-  },,
+  },
   {
     company: "iRipple",
     title: "Software QA Specialist",
     period: "2023 – 2025",
     points: [
-      "Led test planning and execution for core product releases.",
-      "Created and maintained functional, regression, and API test cases.",
-      "Collaborated with developers to improve product quality and reduce defects.",
+      "Led test planning and execution for product enhancements, fixes, and regression cycles.",
+      "Created and maintained functional, regression, API, and data-validation test coverage.",
+      "Worked closely with developers and stakeholders to reproduce issues, verify fixes, and improve release quality.",
     ],
   },
   {
@@ -26,20 +26,20 @@ const roles = [
     title: "QA Tester",
     period: "2021 – 2023",
     points: [
-      "Executed manual functional and regression testing across web applications.",
-      "Authored detailed test cases and reproducible bug reports.",
-      "Performed database validation with SQL to verify data integrity.",
+      "Executed manual functional, exploratory, and regression testing across web applications.",
+      "Authored detailed test cases and reproducible bug reports with clear expected and actual results.",
+      "Performed SQL-based data validation to verify application behavior and data integrity.",
     ],
   },
   {
     company: "ComServices",
-    title: "QA Tester - Freelance",
+    title: "QA Tester — Freelance",
     period: "2020 – 2021",
     points: [
-  "Performed functional, regression, and exploratory testing.",
-  "Created test cases, documented bugs, and verified fixes.",
-  "Validated web features, workflows, and edge cases.",
-],
+      "Performed functional, regression, and exploratory testing for web workflows.",
+      "Created test cases, documented defects, and verified fixes across iterative releases.",
+      "Validated user journeys, edge cases, and expected behavior before delivery.",
+    ],
   },
 ]
 
@@ -47,10 +47,10 @@ export function Experience() {
   return (
     <section id="experience" className="border-b border-border">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-        <SectionHeading index="04" title="Experience" subtitle="Where I've shipped quality" />
+        <SectionHeading index="04" title="Experience" subtitle="Progression from QA execution to business analysis and delivery ownership" />
         <ol className="mt-8 space-y-6 border-l border-border pl-6">
           {roles.map((role, i) => (
-            <li key={i} className="relative">
+            <li key={`${role.company}-${role.title}-${i}`} className="relative">
               <span className="absolute -left-[1.6875rem] top-1.5 h-3 w-3 rounded-full border-2 border-primary bg-background" />
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-lg font-semibold text-foreground">

@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Phillip Val Cabalo — Software QA Engineer',
+  title: 'Phillip Val Cabalo — Business Analyst | QA & Test Automation',
   description:
-    'Portfolio of Phillip Val Cabalo, a Software QA Engineer with 5+ years of experience in manual testing, test automation (Playwright, Cypress, Selenium), API testing, and SQL database validation.',
-  generator: 'v0.app',
+    'Portfolio of Phillip Val Cabalo, a Business Analyst and QA professional focused on requirements, product workflows, manual and automated testing, API validation, SQL, and AI-assisted document automation.',
+  generator: 'Next.js',
   icons: {
     icon: [
       {

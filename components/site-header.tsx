@@ -16,7 +16,7 @@ export function SiteHeader() {
           <TerminalSquare className="h-5 w-5 text-primary" aria-hidden="true" />
           <span className="text-foreground">pvc</span>
           <span className="text-primary">@</span>
-          <span className="text-muted-foreground">qa</span>
+          <span className="text-muted-foreground">ba-qa</span>
         </a>
         <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
           {nav.map((item) => (
