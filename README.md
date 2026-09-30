@@ -1,6 +1,6 @@
 # Phillip Val Cabalo — QA Engineer Portfolio
 
-A QA-first portfolio showcasing **test automation, functional testing, API validation, data verification, CI execution, and real-time Playwright reporting**.
+Showcasing **test automation, functional testing, API validation, data verification, CI execution, and real-time Playwright reporting**.
 
 The portfolio is designed to do more than describe testing experience: visitors can trigger a public Playwright regression suite, watch test results update live, and open the resulting Playwright HTML report.
 
