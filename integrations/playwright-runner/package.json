@@ -1,6 +1,6 @@
 {
   "name": "phillip-portfolio-playwright-runner",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -8,5 +8,8 @@
   },
   "scripts": {
     "start": "node server.mjs"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16"
   }
 }
