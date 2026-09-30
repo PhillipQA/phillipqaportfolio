@@ -20,23 +20,6 @@ export const metadata: Metadata = {
   description:
     'Portfolio of Phillip Val Cabalo, a QA engineer specializing in Playwright + TypeScript automation, API testing, SQL data validation, and regression testing. Also a Business Analyst who writes the requirements he tests against.',
   generator: 'Next.js',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
