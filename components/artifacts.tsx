@@ -72,7 +72,7 @@ export function Artifacts() {
                   <span className="block text-sm font-medium text-foreground">{a.label}</span>
                   <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">{a.detail}</span>
                   {!a.href ? (
-                    <span className="mt-2 block font-mono text-[11px] text-primary">sample available on request</span>
+                    <span className="mt-2 block text-[11px] text-primary">sample available on request</span>
                   ) : null}
                 </span>
               </>

@@ -71,8 +71,8 @@ function statusMeta(run: RunStatus | null) {
       label: run.status === "queued" ? "Queued" : "Running",
       detail: "GitHub Actions is executing the Playwright suite.",
       icon: Loader2,
-      textClass: "text-accent",
-      borderClass: "border-accent/40",
+      textClass: "text-muted-foreground",
+      borderClass: "border-border",
     }
   }
 
@@ -81,8 +81,8 @@ function statusMeta(run: RunStatus | null) {
       label: "Passed",
       detail: "The latest Playwright demo run completed successfully.",
       icon: CheckCircle2,
-      textClass: "text-primary",
-      borderClass: "border-primary/40",
+      textClass: "text-accent",
+      borderClass: "border-accent/40",
     }
   }
 
@@ -186,7 +186,7 @@ export function TestLab() {
         <SectionHeading
           index="03"
           title="Live QA Test Lab"
-          subtitle="Trigger the public Playwright suite and watch the CI run from this portfolio"
+          subtitle="Run my public Playwright suite on GitHub Actions and watch the result come back here"
         />
 
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
@@ -254,7 +254,7 @@ export function TestLab() {
                 type="button"
                 onClick={runTests}
                 disabled={!configured || loading}
-                className="inline-flex items-center gap-2 rounded-md border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-sm font-medium text-primary transition-colors hover:bg-primary/20 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Play className="h-4 w-4" />}
                 {loading ? "test running" : "run Playwright tests"}

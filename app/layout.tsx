@@ -1,22 +1,24 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({
+const geistSans = IBM_Plex_Sans({
   subsets: ['latin'],
+  weight: ['400', '500', '600'],
   variable: '--font-sans',
 })
 
-const geistMono = Geist_Mono({
+const geistMono = IBM_Plex_Mono({
   subsets: ['latin'],
+  weight: ['400', '500'],
   variable: '--font-mono',
 })
 
 export const metadata: Metadata = {
-  title: 'Phillip Val Cabalo — Business Analyst | QA & Test Automation',
+  title: 'Phillip Val Cabalo — QA Engineer | Test Automation, API & Data Validation',
   description:
-    'Portfolio of Phillip Val Cabalo, a Business Analyst and QA professional focused on requirements, product workflows, manual and automated testing, API validation, SQL, and AI-assisted document automation.',
+    'Portfolio of Phillip Val Cabalo, a QA engineer specializing in Playwright + TypeScript automation, API testing, SQL data validation, and regression testing. Also a Business Analyst who writes the requirements he tests against.',
   generator: 'Next.js',
   icons: {
     icon: [
@@ -38,8 +40,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#1a1d21',
+  colorScheme: 'light',
+  themeColor: '#f4f6f8',
 }
 
 export default function RootLayout({
@@ -48,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

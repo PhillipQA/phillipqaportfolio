@@ -1,71 +1,61 @@
-import { BriefcaseBusiness, CheckCircle2, Workflow } from "lucide-react"
+import { CheckCircle2 } from "lucide-react"
 
-const stats = [
-  { icon: BriefcaseBusiness, value: "5+ yrs", label: "QA & delivery experience" },
-  { icon: Workflow, value: "BA + QA", label: "requirements through validation" },
-  { icon: CheckCircle2, value: "4", label: "featured case studies" },
+const coverage = [
+  "Login and authentication",
+  "Negative and edge-case scenarios",
+  "Sorting, cart, and checkout journeys",
+  "API responses and payloads",
+  "SQL data integrity",
+  "Regression across releases",
 ]
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden border-b border-border">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
-        }}
-      />
-      <div className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs text-primary">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          business analysis · quality assurance · automation
+    <section id="top" className="border-b border-border">
+      <div className="mx-auto grid max-w-5xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+        <div>
+          <p className="text-sm font-medium text-accent">Phillip Val Cabalo · QA Engineer</p>
+          <h1 className="mt-3 text-balance text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
+            I find the defects before your users do, and automate the checks that keep them from coming back.
+          </h1>
+          <p className="mt-5 max-w-xl text-pretty leading-relaxed text-muted-foreground">
+            Five-plus years testing web applications: Playwright and TypeScript automation, API testing, SQL data
+            validation, and regression cycles. Everything on this page is real work you can open, read, or run.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a href="#test-lab" className="rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
+              Run the live test suite
+            </a>
+            <a href="#artifacts" className="rounded-md border border-border bg-card px-4 py-2.5 text-sm font-medium transition-colors hover:border-primary/50">
+              Read test plans and bug reports
+            </a>
+          </div>
+          <p className="mt-6 max-w-xl border-l-2 border-accent pl-4 text-sm leading-relaxed text-muted-foreground">
+            I&apos;m also a Business Analyst (promoted from QA in 2025). I write the acceptance criteria I test against,
+            so my test cases start from what the requirement actually meant.
+          </p>
         </div>
 
-        <h1 className="mt-6 text-balance font-mono text-4xl font-bold tracking-tight sm:text-6xl">
-          Phillip Val Cabalo
-        </h1>
-        <p className="mt-3 text-pretty text-lg text-muted-foreground sm:text-xl">
-          Business Analyst | QA &amp; Test Automation
-        </p>
-        <p className="mt-5 max-w-3xl text-pretty leading-relaxed text-muted-foreground">
-          I translate business needs into clear, testable requirements and stay close to delivery through
-          QA, UAT, defect analysis, and automation. My work sits between stakeholders, developers, and
-          users — reducing ambiguity, catching issues early, and building practical workflows that help
-          teams ship with confidence.
-        </p>
-
-        <div className="mt-8 max-w-2xl rounded-lg border border-border bg-card font-mono text-sm shadow-sm">
-          <div className="flex items-center gap-1.5 border-b border-border px-4 py-2.5">
-            <span className="h-3 w-3 rounded-full bg-destructive/70" />
-            <span className="h-3 w-3 rounded-full bg-chart-3/70" />
-            <span className="h-3 w-3 rounded-full bg-primary/70" />
-            <span className="ml-3 text-xs text-muted-foreground">delivery-workflow.sh</span>
-          </div>
-          <div className="space-y-1 px-4 py-4">
-            <p className="text-muted-foreground">
-              <span className="text-primary">$</span> map requirement --to delivery
-            </p>
-            <p className="text-foreground">✓ clarify scope, flows, and acceptance criteria</p>
-            <p className="text-foreground">✓ validate edge cases, APIs, data, and user journeys</p>
-            <p className="text-foreground">✓ automate repeatable regression where it adds value</p>
-            <p className="text-muted-foreground">
-              <span className="text-accent">▸</span> outcome: traceable requirements + testable delivery
-            </p>
-          </div>
+        <div className="rounded-lg border border-border bg-card p-5 shadow-sm">
+          <h2 className="font-semibold">What my automation covers</h2>
+          <p className="mt-1 text-sm text-muted-foreground">From the public Playwright + TypeScript project</p>
+          <ul className="mt-4 space-y-2.5">
+            {coverage.map((c) => (
+              <li key={c} className="flex items-start gap-2.5 text-sm">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-accent" aria-hidden="true" />
+                {c}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://github.com/PhillipQA/playwright-automation-project"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-block text-sm font-medium underline underline-offset-4 hover:text-accent"
+          >
+            Browse the repository
+          </a>
         </div>
-
-        <dl className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {stats.map((s) => (
-            <div key={s.label} className="rounded-lg border border-border bg-card p-4">
-              <s.icon className="h-5 w-5 text-primary" aria-hidden="true" />
-              <dt className="mt-3 font-mono text-2xl font-bold text-foreground">{s.value}</dt>
-              <dd className="text-sm text-muted-foreground">{s.label}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   )

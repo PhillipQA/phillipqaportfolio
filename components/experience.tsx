@@ -47,7 +47,7 @@ export function Experience() {
   return (
     <section id="experience" className="border-b border-border">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-        <SectionHeading index="05" title="Experience" subtitle="Progression from QA execution to business analysis and delivery ownership" />
+        <SectionHeading index="05" title="Experience" subtitle="Five years in QA, now extending into business analysis" />
         <ol className="mt-8 space-y-6 border-l border-border pl-6">
           {roles.map((role, i) => (
             <li key={`${role.company}-${role.title}-${i}`} className="relative">
@@ -57,7 +57,7 @@ export function Experience() {
                   {role.title}
                   <span className="text-muted-foreground"> · {role.company}</span>
                 </h3>
-                <span className="font-mono text-sm text-primary">{role.period}</span>
+                <span className="text-sm text-primary">{role.period}</span>
               </div>
               <ul className="mt-3 space-y-1.5">
                 {role.points.map((p, j) => (

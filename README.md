@@ -1,6 +1,6 @@
-# Phillip Val Cabalo — BA + QA Portfolio
+# Phillip Val Cabalo — QA Engineer Portfolio
 
-Personal portfolio highlighting my progression from QA testing and automation into Business Analysis, requirements design, delivery coordination, and AI-assisted workflow automation.
+QA-first portfolio: Playwright + TypeScript automation, API and SQL validation, test artifacts, and a live test lab. Business analysis (BRD/FSD, acceptance criteria, traceability) is presented as a supporting strength.
 
 ## Focus Areas
 

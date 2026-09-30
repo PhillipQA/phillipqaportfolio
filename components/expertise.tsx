@@ -1,66 +1,37 @@
 import { SectionHeading } from "@/components/section-heading"
 
-const businessAnalysis = [
-  "Requirements Gathering",
-  "BRD / FSD Documentation",
-  "Process & Workflow Mapping",
-  "Acceptance Criteria",
-  "Requirements Traceability",
-  "Stakeholder / Dev Coordination",
+const groups = [
+  { title: "Test automation", items: ["Playwright + TypeScript", "Page Object Model and custom fixtures", "Data-driven test design", "GitHub Actions CI runs"] },
+  { title: "Manual and functional testing", items: ["Exploratory and regression testing", "Test plans and test cases", "Reproducible defect reports", "UAT support and re-testing"] },
+  { title: "API and data", items: ["REST testing with Postman", "Auth, payload, and negative-case checks", "SQL data validation", "Supabase / PostgreSQL"] },
 ]
-
-const quality = [
-  "Manual & Exploratory Testing",
-  "Functional & Regression Testing",
-  "UAT Support",
-  "API Testing",
-  "SQL / Data Validation",
-  "Defect Analysis & Re-testing",
-]
-
-const technical = [
-  "Playwright + TypeScript",
-  "Postman / REST APIs",
-  "Supabase / PostgreSQL",
-  "Git / GitHub",
-  "AI-assisted Document Workflows",
-  "Gmail / Discord Integrations",
-]
-
-function Tree({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div className="rounded-lg border border-border bg-card p-5">
-      <p className="font-mono text-sm text-primary">{title}/</p>
-      <ul className="mt-3 font-mono text-sm">
-        {items.map((item, i) => {
-          const last = i === items.length - 1
-          return (
-            <li key={item} className="flex items-center py-1 text-foreground">
-              <span className="text-muted-foreground">{last ? "└──" : "├──"}</span>
-              <span className="ml-3">{item}</span>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
-}
 
 export function Expertise() {
   return (
     <section id="expertise" className="border-b border-border">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-        <SectionHeading index="01" title="Expertise" subtitle="From requirements to release validation" />
+        <SectionHeading title="Testing skills" subtitle="The tools and techniques I use day to day" />
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
-          <Tree title="business-analysis" items={businessAnalysis} />
-          <Tree title="quality-assurance" items={quality} />
-          <Tree title="technical-toolkit" items={technical} />
+          {groups.map((g) => (
+            <div key={g.title} className="rounded-lg border border-border bg-card p-5">
+              <h3 className="font-semibold">{g.title}</h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                {g.items.map((i) => (
+                  <li key={i}>{i}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          I work across the delivery lifecycle: clarifying business intent, turning it into structured
-          requirements, validating implementation, documenting defects and decisions, and automating
-          repeatable checks when automation improves feedback speed and consistency.
-        </p>
+
+        <div className="mt-6 rounded-lg border border-accent/30 bg-accent/5 p-5 sm:p-6">
+          <h3 className="font-semibold">Also a Business Analyst</h3>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Testers usually inherit requirements. I also write them: BRD and FSD documentation, process flows,
+            acceptance criteria, and requirements traceability. That means fewer ambiguous specs, tests tied
+            directly to acceptance criteria, and defects caught at the requirement stage, where they are cheapest to fix.
+          </p>
+        </div>
       </div>
     </section>
   )

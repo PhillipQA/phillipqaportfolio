@@ -28,24 +28,9 @@ type Project = {
 const projects: Project[] = [
   {
     id: "01",
-    title: "BA Client Ops Tracker",
-    stack: "BA · QA · TypeScript · Supabase",
-    badge: "Flagship · Private build",
-    description:
-      "A multi-module operations platform designed around day-to-day Business Analyst and QA work: clients, projects, tasks, requirements, communications, document workflows, traceability, and reporting.",
-    highlights: [
-      "Client / project / task and subtask operations with role-based access",
-      "Requirements Traceability Matrix linked to delivery activities",
-      "Document workflows for BRD, FSD, DRF, sign-off, and DocHub handoff",
-      "Per-user Gmail / Discord communication workflows and integrations",
-    ],
-    links: [{ label: "Private case study", href: "#artifacts", icon: LockKeyhole }],
-  },
-  {
-    id: "02",
     title: "Playwright Automation Framework",
     stack: "Playwright · TypeScript · API",
-    badge: "Public repository",
+    badge: "Public · QA automation",
     description:
       "A maintainable test automation project covering authentication, negative scenarios, product flows, cart and checkout journeys, reusable fixtures, data-driven testing, and API validation.",
     highlights: [
@@ -68,25 +53,10 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "03",
-    title: "AI Document & Requirements Automation",
-    stack: "BRD · FSD · OCR · AI Mapping",
-    badge: "Case study",
-    description:
-      "A document workflow focused on turning uploaded business documents and supporting evidence into structured, reviewable requirements while preserving user control over scope and output.",
-    highlights: [
-      "Parse-first workflow for documents and supporting images",
-      "BRD-to-FSD mapping with presets and scope controls",
-      "OCR-assisted DRF field extraction and template population",
-      "Reset, validation, auditability, and error-handling requirements",
-    ],
-    links: [{ label: "See related artifacts", href: "#artifacts", icon: Bot }],
-  },
-  {
-    id: "04",
+    id: "02",
     title: "QA Engineering Case Study",
     stack: "Test Plans · Cases · Bugs · UAT",
-    badge: "Working artifacts",
+    badge: "QA artifacts",
     description:
       "A practical QA delivery set showing how requirements are translated into test coverage, reproducible defect reports, regression checks, and release / UAT validation.",
     highlights: [
@@ -108,6 +78,36 @@ const projects: Project[] = [
       },
     ],
   },
+  {
+    id: "03",
+    title: "AI Document & Requirements Automation",
+    stack: "BRD · FSD · OCR · AI Mapping",
+    badge: "Case study",
+    description:
+      "A document workflow focused on turning uploaded business documents and supporting evidence into structured, reviewable requirements while preserving user control over scope and output.",
+    highlights: [
+      "Parse-first workflow for documents and supporting images",
+      "BRD-to-FSD mapping with presets and scope controls",
+      "OCR-assisted DRF field extraction and template population",
+      "Reset, validation, auditability, and error-handling requirements",
+    ],
+    links: [{ label: "See related artifacts", href: "#artifacts", icon: Bot }],
+  },
+  {
+    id: "04",
+    title: "BA Client Ops Tracker",
+    stack: "BA · QA · TypeScript · Supabase",
+    badge: "Supporting · BA + QA build",
+    description:
+      "A multi-module operations platform designed around day-to-day Business Analyst and QA work: clients, projects, tasks, requirements, communications, document workflows, traceability, and reporting.",
+    highlights: [
+      "Client / project / task and subtask operations with role-based access",
+      "Requirements Traceability Matrix linked to delivery activities",
+      "Document workflows for BRD, FSD, DRF, sign-off, and DocHub handoff",
+      "Per-user Gmail / Discord communication workflows and integrations",
+    ],
+    links: [{ label: "Private case study", href: "#artifacts", icon: LockKeyhole }],
+  }
 ]
 
 function isExternal(href: string) {
@@ -121,7 +121,7 @@ export function Projects() {
         <SectionHeading
           index="02"
           title="Featured Projects"
-          subtitle="Selected BA, QA, automation, and workflow design work"
+          subtitle="Automation and QA deliverables first, then the requirements-side work behind them"
         />
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
           {projects.map((p) => (
@@ -130,15 +130,15 @@ export function Projects() {
               className="group flex flex-col rounded-lg border border-border bg-card p-6 transition-colors hover:border-primary/50"
             >
               <div className="flex items-start justify-between gap-4">
-                <span className="font-mono text-sm text-primary">{p.id}</span>
+                <span className="text-sm text-primary">{p.id}</span>
                 {p.badge ? (
-                  <span className="rounded-md border border-primary/20 bg-primary/5 px-2 py-1 font-mono text-[11px] text-primary">
+                  <span className="rounded-md border border-primary/20 bg-primary/5 px-2 py-1 text-[11px] text-primary">
                     {p.badge}
                   </span>
                 ) : null}
               </div>
               <h3 className="mt-4 text-lg font-semibold text-foreground">{p.title}</h3>
-              <p className="mt-1 font-mono text-xs text-muted-foreground">{p.stack}</p>
+              <p className="mt-1 text-xs text-muted-foreground">{p.stack}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
 
               <ul className="mt-4 flex-1 space-y-2 border-t border-border pt-4">
@@ -157,7 +157,7 @@ export function Projects() {
                     href={l.href}
                     target={isExternal(l.href) ? "_blank" : undefined}
                     rel={isExternal(l.href) ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center gap-1.5 font-mono text-sm text-foreground transition-colors hover:text-primary"
+                    className="inline-flex items-center gap-1.5 text-sm text-foreground transition-colors hover:text-primary"
                   >
                     <l.icon className="h-4 w-4" />
                     {l.label}

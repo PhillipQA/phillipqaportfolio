@@ -14,9 +14,9 @@ export default function Page() {
       <SiteHeader />
       <main>
         <Hero />
-        <Expertise />
-        <Projects />
         <TestLab />
+        <Projects />
+        <Expertise />
         <Artifacts />
         <Experience />
         <Contact />

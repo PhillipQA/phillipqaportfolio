@@ -26,7 +26,7 @@ export function Contact() {
   return (
     <section id="contact">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-        <SectionHeading index="06" title="Contact" subtitle="Let’s talk about requirements, quality, automation, and better delivery workflows" />
+        <SectionHeading index="06" title="Contact" subtitle="Hiring for QA or test automation? Let’s talk about how I can help your team ship with confidence" />
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {links.map((l) => (
             <a
@@ -43,7 +43,7 @@ export function Contact() {
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
               </div>
               <span className="mt-4 text-sm font-medium text-foreground">{l.label}</span>
-              <span className="font-mono text-xs text-muted-foreground">{l.value}</span>
+              <span className="text-xs text-muted-foreground">{l.value}</span>
             </a>
           ))}
         </div>
