@@ -9,6 +9,7 @@ const repo = process.env.GITHUB_REPO || "playwright-automation-project"
 const workflow = process.env.GITHUB_WORKFLOW || "portfolio-demo.yml"
 const ref = process.env.GITHUB_REF || "main"
 const token = process.env.GITHUB_TOKEN || ""
+const telemetryToken = process.env.TELEMETRY_TOKEN || ""
 const ipCooldownMs = Number(process.env.IP_COOLDOWN_MS || 120000)
 const globalCooldownMs = Number(process.env.GLOBAL_COOLDOWN_MS || 30000)
 const allowedOrigins = new Set(
@@ -23,6 +24,8 @@ const lastRunByIp = new Map()
 const liveCache = new Map()
 const reportCache = new Map()
 const artifactAvailabilityCache = new Map()
+const telemetryByRun = new Map()
+const streamClients = new Map()
 
 function json(res, status, body, origin) {
   const headers = {
@@ -36,6 +39,61 @@ function json(res, status, body, origin) {
   }
   res.writeHead(status, headers)
   res.end(JSON.stringify(body))
+}
+
+
+function streamHeaders(origin) {
+  const headers = {
+    "Content-Type": "text/event-stream; charset=utf-8",
+    "Cache-Control": "no-cache, no-transform",
+    "Connection": "keep-alive",
+    "X-Accel-Buffering": "no",
+    "X-Content-Type-Options": "nosniff",
+  }
+  if (origin && isOriginAllowed(origin)) {
+    headers["Access-Control-Allow-Origin"] = origin
+    headers["Vary"] = "Origin"
+  }
+  return headers
+}
+
+function sendStream(res, body) {
+  if (res.destroyed || res.writableEnded) return
+  res.write(`data: ${JSON.stringify({ ok: true, ...body })}\n\n`)
+}
+
+function telemetryEventsFor(runId) {
+  return telemetryByRun.get(String(runId)) || []
+}
+
+function rememberTelemetry(runId, event) {
+  const key = String(runId)
+  const events = telemetryEventsFor(key).slice()
+  events.push(event)
+  if (events.length > 500) events.splice(0, events.length - 500)
+  telemetryByRun.set(key, events)
+}
+
+function telemetryAuthorized(req) {
+  if (!telemetryToken) return false
+  const supplied = String(req.headers["x-portfolio-telemetry-token"] || "")
+  return supplied.length > 0 && supplied === telemetryToken
+}
+
+function broadcastProgress(runId) {
+  const key = String(runId)
+  const clients = streamClients.get(key)
+  if (!clients?.size) return
+
+  const cached = liveCache.get(key)?.data
+  const progress = buildProgress(telemetryEventsFor(key), "")
+  const body = {
+    run: cached?.run || null,
+    job: cached?.job || null,
+    progress,
+    reportAvailable: Boolean(cached?.reportAvailable),
+  }
+  for (const client of clients) sendStream(client, body)
 }
 
 function isOriginAllowed(origin) {
@@ -341,7 +399,8 @@ async function liveSnapshot(runId) {
     }
   }
 
-  const events = portfolioEvents(logText)
+  const pushedEvents = telemetryEventsFor(runId)
+  const events = pushedEvents.length ? pushedEvents : portfolioEvents(logText)
   const progress = buildProgress(events, logText)
   let reportAvailable = false
   if (run?.status === "completed") {
@@ -458,7 +517,7 @@ const server = http.createServer(async (req, res) => {
   if (req.method === "OPTIONS") {
     const headers = {
       "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Headers": "Content-Type, X-Portfolio-Telemetry-Token",
       "Access-Control-Max-Age": "86400",
     }
     if (origin && isOriginAllowed(origin)) {
@@ -473,11 +532,71 @@ const server = http.createServer(async (req, res) => {
 
   try {
     if (req.method === "GET" && url.pathname === "/health") {
-      return json(res, 200, { ok: true, demoEnabled, repo: `${owner}/${repo}`, workflow }, origin)
+      return json(res, 200, { ok: true, demoEnabled, telemetryEnabled: Boolean(telemetryToken), repo: `${owner}/${repo}`, workflow }, origin)
     }
 
     if (req.method === "GET" && url.pathname === "/api/qa/latest") {
       return json(res, 200, { ok: true, run: await latestRun() }, origin)
+    }
+
+    if (req.method === "GET" && url.pathname.startsWith("/api/qa/stream/")) {
+      const id = url.pathname.split("/").pop()
+      if (!/^\d+$/.test(id || "")) return json(res, 400, { ok: false, error: "Invalid run id." }, origin)
+
+      res.writeHead(200, streamHeaders(origin))
+      res.write(": connected\n\n")
+
+      const key = String(id)
+      const clients = streamClients.get(key) || new Set()
+      clients.add(res)
+      streamClients.set(key, clients)
+
+      let closed = false
+      let syncing = false
+
+      const pushSnapshot = async () => {
+        if (closed || syncing) return
+        syncing = true
+        try {
+          liveCache.delete(key)
+          const snapshot = await liveSnapshot(key)
+          sendStream(res, snapshot)
+        } catch (error) {
+          console.warn("Unable to refresh SSE snapshot:", error instanceof Error ? error.message : error)
+        } finally {
+          syncing = false
+        }
+      }
+
+      await pushSnapshot()
+      const snapshotTimer = setInterval(pushSnapshot, 2500)
+      const heartbeatTimer = setInterval(() => {
+        if (!res.destroyed && !res.writableEnded) res.write(": ping\n\n")
+      }, 15000)
+
+      req.on("close", () => {
+        closed = true
+        clearInterval(snapshotTimer)
+        clearInterval(heartbeatTimer)
+        clients.delete(res)
+        if (clients.size === 0) streamClients.delete(key)
+      })
+      return
+    }
+
+    if (req.method === "POST" && url.pathname.startsWith("/api/qa/telemetry/")) {
+      const id = url.pathname.split("/").pop()
+      if (!/^\d+$/.test(id || "")) return json(res, 400, { ok: false, error: "Invalid run id." }, origin)
+      if (!telemetryAuthorized(req)) return json(res, 401, { ok: false, error: "Invalid telemetry token." }, origin)
+
+      const event = await readJson(req)
+      if (!event || typeof event !== "object" || typeof event.type !== "string") {
+        return json(res, 400, { ok: false, error: "Invalid telemetry event." }, origin)
+      }
+
+      rememberTelemetry(id, event)
+      broadcastProgress(id)
+      return json(res, 202, { ok: true }, origin)
     }
 
     if (req.method === "GET" && url.pathname.startsWith("/api/qa/live/")) {

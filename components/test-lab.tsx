@@ -175,6 +175,7 @@ export function TestLab() {
   const [message, setMessage] = useState<string>("")
   const [showReport, setShowReport] = useState(false)
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const streamRef = useRef<EventSource | null>(null)
   const consoleRef = useRef<HTMLDivElement | null>(null)
   const configured = Boolean(runnerUrl)
   const meta = useMemo(() => statusMeta(run), [run])
@@ -187,10 +188,25 @@ export function TestLab() {
   const recentTests = [...(progress?.tests || [])].reverse().slice(0, 10)
   const reportUrl = run && live?.reportAvailable ? `${runnerUrl}/api/qa/report/${run.id}/` : ""
 
-  const stopPolling = () => {
+  const applyLiveData = (data: RunResponse) => {
+    if (!data.run || !data.progress) return
+    setRun(data.run)
+    setLive({
+      job: data.job || null,
+      progress: data.progress,
+      reportAvailable: Boolean(data.reportAvailable),
+    })
+    if (data.run.status === "completed") setLoading(false)
+  }
+
+  const stopLiveUpdates = () => {
     if (pollRef.current) {
       clearInterval(pollRef.current)
       pollRef.current = null
+    }
+    if (streamRef.current) {
+      streamRef.current.close()
+      streamRef.current = null
     }
   }
 
@@ -202,13 +218,7 @@ export function TestLab() {
       if (!response.ok || !data.ok || !data.run || !data.progress) {
         throw new Error(data.error || "Unable to load live test output.")
       }
-      setRun(data.run)
-      setLive({
-        job: data.job || null,
-        progress: data.progress,
-        reportAvailable: Boolean(data.reportAvailable),
-      })
-      if (data.run.status === "completed") setLoading(false)
+      applyLiveData(data)
       return data
     } catch (error) {
       if (!silent) setMessage(error instanceof Error ? error.message : "Unable to load live test output.")
@@ -216,16 +226,47 @@ export function TestLab() {
     }
   }
 
-  const pollRun = (id: number) => {
-    stopPolling()
+  const startPollingFallback = (id: number) => {
+    if (pollRef.current) clearInterval(pollRef.current)
     pollRef.current = setInterval(async () => {
       const data = await loadLive(id, true)
       if (data?.run?.status === "completed") {
-        stopPolling()
-        setLoading(false)
-        setTimeout(() => loadLive(id, true), 1500)
+        if (pollRef.current) clearInterval(pollRef.current)
+        pollRef.current = null
       }
-    }, 3500)
+    }, 5000)
+  }
+
+  const startStream = (id: number) => {
+    stopLiveUpdates()
+
+    if (typeof EventSource === "undefined") {
+      startPollingFallback(id)
+      return
+    }
+
+    const source = new EventSource(`${runnerUrl}/api/qa/stream/${id}`)
+    streamRef.current = source
+
+    source.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data) as RunResponse
+        if (!data.ok || !data.run || !data.progress) return
+        applyLiveData(data)
+        if (data.run.status === "completed") {
+          source.close()
+          if (streamRef.current === source) streamRef.current = null
+        }
+      } catch {
+        // Ignore malformed/partial stream events and wait for the next snapshot.
+      }
+    }
+
+    source.onerror = () => {
+      source.close()
+      if (streamRef.current === source) streamRef.current = null
+      startPollingFallback(id)
+    }
   }
 
   const loadLatest = async (silent = false) => {
@@ -238,7 +279,7 @@ export function TestLab() {
       if (data.run) {
         setRun(data.run)
         const liveData = await loadLive(data.run.id, true)
-        if (liveData?.run?.status !== "completed") pollRun(data.run.id)
+        if (liveData?.run?.status !== "completed") startStream(data.run.id)
       }
     } catch (error) {
       if (!silent) setMessage(error instanceof Error ? error.message : "Unable to load the latest run.")
@@ -267,7 +308,7 @@ export function TestLab() {
       if (data.run) {
         setRun(data.run)
         await loadLive(data.run.id, true)
-        pollRun(data.run.id)
+        startStream(data.run.id)
       } else {
         setMessage(data.message || "Run accepted. Waiting for GitHub Actions to create the workflow run.")
         setTimeout(() => loadLatest(true), 5000)
@@ -281,7 +322,7 @@ export function TestLab() {
 
   useEffect(() => {
     if (configured) loadLatest(true)
-    return stopPolling
+    return stopLiveUpdates
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -355,7 +396,7 @@ export function TestLab() {
                 <div>
                   <div className="font-mono text-xs text-primary">test progress</div>
                   <div className="mt-1 text-sm text-muted-foreground">
-                    {total ? `${completed} of ${total} completed` : "Waiting for test telemetry"}
+                    {total ? `${completed} of ${total} completed` : "Waiting for live test events"}
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 font-mono text-xs">
@@ -375,7 +416,7 @@ export function TestLab() {
                   <TerminalSquare className="h-4 w-4 text-primary" /> live execution console
                 </div>
                 <span className="font-mono text-[11px] text-muted-foreground">
-                  {live?.job?.steps.find((step) => step.status === "in_progress")?.name || live?.job?.status || "idle"}
+                  {run && run.status !== "completed" ? "LIVE" : (live?.job?.status || "idle")}
                 </span>
               </div>
               <div ref={consoleRef} className="h-72 overflow-y-auto px-4 py-3 font-mono text-xs leading-6" aria-live="polite">
@@ -391,7 +432,7 @@ export function TestLab() {
               <div className="mt-5">
                 <div className="mb-3 flex items-center justify-between gap-3">
                   <div className="font-mono text-xs text-primary">latest tests</div>
-                  <span className="text-xs text-muted-foreground">updates every few seconds</span>
+                  <span className="text-xs text-muted-foreground">updates live</span>
                 </div>
                 <div className="space-y-2">
                   {recentTests.map((test) => (
