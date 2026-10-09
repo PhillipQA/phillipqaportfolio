@@ -1,6 +1,9 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === "true" ? "/phillipqaportfolio" : "")
+
 const nav = [
   { label: "Test lab", href: "#test-lab" },
   { label: "Projects", href: "#projects" },
+  { label: "QA Services", href: `${basePath}/services/` },
   { label: "Skills", href: "#expertise" },
   { label: "Artifacts", href: "#artifacts" },
   { label: "Experience", href: "#experience" },
