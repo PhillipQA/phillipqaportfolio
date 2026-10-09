@@ -1,3 +1,511 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Phillip QA — Independent software testing</title><meta name="description" content="Independent manual, API and regression testing for software teams and agencies. Explore focused QA reviews, launch testing and monthly support."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2367e8f9'/%3E%3Cpath d='m8 16 5 5 11-11' stroke='%230c1420' stroke-width='4' fill='none'/%3E%3C/svg%3E"><style>
-:root{color-scheme:dark;--bg:#0b111b;--panel:#111b28;--ink:#f2f6fc;--muted:#a9b5c6;--cyan:#67e8f9;--line:#273345}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,sans-serif}a{color:inherit;text-decoration:none}button,a{touch-action:manipulation}a:focus-visible,summary:focus-visible{outline:3px solid var(--cyan);outline-offset:5px}.wrap{max-width:1160px;margin:auto;padding:0 28px}header{border-bottom:1px solid var(--line);background:#0b111bf0;position:sticky;top:0;z-index:5}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:84px}.brand{font-size:21px;font-weight:750;letter-spacing:-.8px}.brand span{color:var(--cyan)}nav{display:flex;gap:27px;font-size:14px;align-items:center}.active{color:var(--cyan)}.btn{display:inline-flex;justify-content:center;align-items:center;padding:12px 20px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-weight:650;background:transparent}.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#07121c}.btn:hover{border-color:var(--cyan);transform:translateY(-1px)}.eyebrow{color:var(--cyan);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase}.hero{padding:85px 0 66px;display:grid;grid-template-columns:1.2fr 1fr;gap:70px;align-items:center}h1{font-size:clamp(40px,5.4vw,66px);line-height:1.08;letter-spacing:-2.8px;margin:20px 0 25px;font-weight:750}h1 span{color:var(--cyan)}p{color:var(--muted);margin:0 0 22px}.lead{max-width:530px;font-size:18px}.actions{display:flex;gap:12px;flex-wrap:wrap}.hero-foot{font-size:13px;margin-top:22px;color:var(--muted)}.report{border:1px solid #344459;background:var(--panel);border-radius:14px;box-shadow:0 25px 60px #0004;transform:rotate(1deg)}.report-top{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font:13px ui-monospace,monospace;color:var(--muted)}.report-body{padding:26px}.tag{display:inline-block;border:1px solid #445266;border-radius:5px;padding:3px 8px;font-size:12px;color:var(--muted)}.report h3{font-size:22px;line-height:1.4;margin:13px 0 24px}.row{padding:12px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:14px;gap:15px}.pass{color:#8be0b4}.fail{color:#ffaf91}.report small{display:block;color:var(--muted);margin-top:20px;font-size:12px}.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:14px;color:var(--muted)}.strip strong{color:var(--ink)}section{padding:72px 0;border-bottom:1px solid var(--line)}.heading{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:30px}.heading p{max-width:400px;margin:0}h2{font-size:36px;line-height:1.2;letter-spacing:-1.2px;margin:10px 0 0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{position:relative;border:1px solid var(--line);border-radius:12px;padding:29px;background:var(--panel);display:flex;flex-direction:column}.card.featured{border-color:var(--cyan);background:linear-gradient(145deg,#142a36,#111b28 60%)}.card .label{font-size:12px;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;margin-bottom:13px}.card h3{font-size:21px;margin:0 0 8px}.price{font-size:44px;letter-spacing:-2px;font-weight:700;margin:15px 0 4px}.price small{font-size:14px;letter-spacing:0;color:var(--muted);font-weight:400}.card p{font-size:14px;min-height:46px}.card ul{list-style:none;padding:18px 0 22px;margin:10px 0 20px;border-top:1px solid var(--line);flex:1}.card li{font-size:14px;color:#d1dae7;padding:7px 0}.card li:before{content:'✓';color:var(--cyan);margin-right:9px}.note{font-size:13px;color:var(--muted);margin:20px 0 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}.step{border-top:1px solid var(--line);padding-top:23px}.num{font:14px ui-monospace,monospace;color:var(--cyan)}.step h3{font-size:20px;margin:15px 0 10px}.step p{font-size:15px}.proof{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}.proof h2{margin-bottom:22px}.proof-links{display:grid;gap:12px}.proof-link{border:1px solid var(--line);border-radius:9px;padding:20px 22px;background:var(--panel)}.proof-link:hover{border-color:var(--cyan)}.proof-link strong{display:block}.proof-link span{font-size:14px;color:var(--muted)}details{border-bottom:1px solid var(--line);padding:20px 0}summary{cursor:pointer;font-weight:600}details p{padding-top:13px;margin-bottom:0;font-size:15px}.contact{padding:64px 0;display:flex;justify-content:space-between;align-items:center;gap:35px}.contact h2{margin-bottom:15px}.contact p{margin:0;max-width:570px}footer{padding:26px 0;display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--muted)}@media(max-width:850px){.hero{grid-template-columns:1fr;gap:35px;padding:55px 0}.report{transform:none;max-width:560px}.cards{grid-template-columns:1fr}.card p{min-height:0}.heading,.contact{align-items:start;flex-direction:column;gap:20px}.proof{grid-template-columns:1fr;gap:25px}nav{gap:16px}.nav{flex-wrap:wrap;padding:16px 0}.steps{gap:20px}h1{letter-spacing:-1.5px}}@media(max-width:560px){.wrap{padding:0 20px}nav{width:100%;justify-content:space-between;gap:8px}nav .btn{display:none}.steps{grid-template-columns:1fr}section{padding:48px 0}.strip{display:grid;grid-template-columns:1fr 1fr}h2{font-size:30px}footer{flex-direction:column}.report-body{padding:20px}}
-</style></head><body><header><div class="wrap nav"><a class="brand" href="#">phillip<span>qa.</span></a><nav aria-label="Main navigation"><a href="https://phillipqa.github.io/phillipqaportfolio/">Portfolio</a><a href="https://phillipqa.github.io/phillipqaportfolio/#test-lab">QA Lab</a><a class="active" href="#services">Launch Confidence</a><a class="btn" href="inquiry.html">Let's talk</a></nav></div></header><main class="wrap"><div class="hero"><div><div class="eyebrow">Independent software QA</div><h1>A fresh set of eyes.<br><span>Before you ship.</span></h1><p class="lead">Practical testing for agencies and software teams. I check the workflows your customers rely on, document what breaks, and verify the fixes.</p><div class="actions"><a class="btn primary" href="#services">Explore QA packages</a><a class="btn" href="https://phillipqa.github.io/phillipqaportfolio/">See my work</a></div><div class="hero-foot">Philippines based · Remote collaboration · Project or monthly support</div></div><div class="report" aria-label="Illustrative test report"><div class="report-top"><span>release-review / checkout</span><span>Sample report</span></div><div class="report-body"><span class="tag">ILLUSTRATIVE EXAMPLE</span><h3>The happy path is only<br>part of the story.</h3><div class="row"><span>Complete a standard order</span><span class="pass">PASS</span></div><div class="row"><span>Recover from a declined payment</span><span class="fail">FAIL</span></div><div class="row"><span>Apply an expired discount</span><span class="pass">PASS</span></div><div class="row"><span>Retry without duplicate orders</span><span class="fail">FAIL</span></div><small>Clear steps. Expected vs. actual results. Evidence your developer can use.</small></div></div></div><div class="strip"><span><strong>5+ years</strong> in software QA</span><span>Manual & regression</span><span>API testing · Postman</span><span>SQL data validation</span></div><section id="services"><div class="heading"><div><div class="eyebrow">Your next confident launch</div><h2>Catch bugs. Ship with confidence.</h2></div><p>A focused review for your next milestone, or consistent support between releases. Prices in USD.</p></div><div class="cards"><article class="card"><div class="label">A focused first engagement</div><h3>Launch Confidence Review</h3><p>Find the issues your customers shouldn’t have to discover.</p><p>Test one important workflow and receive clear, prioritized findings.</p><div class="price">$120 <small>/ project</small></div><ul><li>Up to 5 testing hours</li><li>One agreed customer workflow</li><li>Two browser/device configurations</li><li>Reproducible bug reports</li><li>Coverage and findings summary</li></ul><a class="btn" href="inquiry.html?offer=0">Check my key workflow</a></article><article class="card featured"><div class="label">For an upcoming launch</div><h3>Launch Readiness Testing</h3><p>Give your launch the testing attention it deserves.</p><p>Check three key workflows, review regression risks, and verify fixes within the included hours.</p><div class="price">$300 <small>starting price</small></div><ul><li>Up to 15 testing hours</li><li>Three agreed workflows</li><li>Functional & regression checks</li><li>Test checklist and bug reports</li><li>One fix-verification round*</li></ul><a class="btn primary" href="inquiry.html?offer=1">Discuss my upcoming launch</a></article><article class="card"><div class="label">For teams shipping regularly</div><h3>Your Ongoing QA Partner</h3><p>Keep moving forward with dependable testing support.</p><p>Get consistent support for new features, regression checks, and fix verification.</p><div class="price" style="font-size:1.5rem;line-height:1.3">Let’s discuss your needs <small>Custom quote after we agree on scope</small></div><ul><li>Testing hours tailored to your needs</li><li>New feature & regression testing</li><li>Priorities agreed each month</li><li>Bug reports and fix verification</li><li>Release testing summaries</li></ul><a class="btn" href="inquiry.html?offer=2">Discuss ongoing support</a></article></div><p class="note">Scope, access, devices, and delivery dates are agreed before work begins. *Fix verification uses the included hours. Development fixes and additional work are quoted separately. Ongoing support terms are agreed in your proposal.</p></section><section><div class="heading"><div><div class="eyebrow">Working together</div><h2>Clear scope. Useful findings.</h2></div></div><div class="steps"><div class="step"><span class="num">01 / Agree the coverage</span><h3>Your product, your priorities</h3><p>We agree on workflows, expected behavior, test access, devices, and the time available.</p></div><div class="step"><span class="num">02 / Test & document</span><h3>Reports built for developers</h3><p>I test normal and edge-case scenarios, then report issues with steps, impact, and supporting evidence.</p></div><div class="step"><span class="num">03 / Review & verify</span><h3>Know what is ready</h3><p>You receive a coverage summary and remaining risks. Fixes are verified within the agreed scope.</p></div></div></section><section class="proof"><div><div class="eyebrow">Meet your testing partner</div><h2>Hi, I'm Phillip.</h2><p>I'm a software QA professional with more than five years of testing experience and a background in business analysis. I turn requirements and reported issues into practical test scenarios and clear findings.</p><p>My work includes functional, regression, API, and database testing. I also develop my automation skills through Playwright portfolio projects.</p></div><div class="proof-links"><a class="proof-link" href="https://phillipqa.github.io/phillipqaportfolio/"><strong>Explore my QA portfolio</strong><span>Experience, projects, and the Live QA Test Lab</span></a><a class="proof-link" href="https://github.com/PhillipQA/playwright-automation-project"><strong>Playwright automation project</strong><span>View the test code and project setup on GitHub</span></a><div class="proof-link"><strong>API & database testing</strong><span>Postman · REST workflows · SQL · PostgreSQL</span></div></div></section><section><div class="eyebrow">Before we start</div><h2>A few practical details.</h2><details><summary>What do I need to provide?</summary><p>A staging or test environment, test accounts, requirements or expected behavior, and a list of the workflows that matter most. API and database checks require the relevant access.</p></details><details><summary>Can you work with my developers or agency?</summary><p>Yes. I can document findings in your existing issue tracker or an agreed report format, and coordinate fix verification with your team.</p></details><details><summary>Do you fix the bugs or guarantee a bug-free release?</summary><p>These packages cover testing and reporting. Your development team handles fixes. Testing reduces uncertainty within the agreed coverage; it cannot guarantee that every defect will be found.</p></details><details><summary>Can I request API testing or automation?</summary><p>Yes. API and SQL checks can be included when they fit the scope and access available. Automation setup is discussed and quoted separately after reviewing your application.</p></details></section><div class="contact" id="contact"><div><div class="eyebrow">Your next release</div><h2>What are you shipping?</h2><p>Tell me about your application, the workflows you want checked, and your target release date. We'll find a sensible starting scope.</p></div><a class="btn primary" href="inquiry.html">Discuss your project</a></div></main><footer class="wrap"><span>© 2026 Phillip Val Cabalo · Independent QA</span><a href="mailto:pvcabalo@gmail.com">pvcabalo@gmail.com</a></footer></body></html>
+<!doctype html>
+<html lang="en" class="offer-on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phillip QA — Independent software testing for agencies and product teams</title>
+<meta name="description" content="Independent manual, API and regression testing for agencies and software teams. Clear bug reports, verified fixes, packages from $120.">
+<meta name="theme-color" content="#0b111b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Phillip QA — Independent software testing">
+<meta property="og:description" content="Reproducible bug reports and verified fixes before you ship. Manual, API and regression testing for agencies and software teams.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2367e8f9'/%3E%3Cpath d='m8 16 5 5 11-11' stroke='%230c1420' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0b111b; --panel:#111b28; --ink:#f2f6fc; --text:#d1dae7; --muted:#a9b5c6;
+  --cyan:#67e8f9; --line:#273345; --line-2:#344459;
+  --pass:#8be0b4; --fail:#ffaf91;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a,button{touch-action:manipulation}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--cyan);outline-offset:4px;border-radius:4px}
+p{color:var(--muted);margin:0 0 20px}
+h1,h2,h3{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:1160px;margin:auto;padding:0 28px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--cyan);color:#07121c;padding:10px 16px;border-radius:8px;font-weight:650;z-index:20}
+.skip:focus{left:8px}
+
+/* introductory offer (remove class="offer-on" from <html> to end it) */
+.offer-on .reg-only{display:none}
+html:not(.offer-on) .intro-only{display:none}
+.announce{background:#0f2a33;border-bottom:1px solid #1d4452;font-size:14px;color:var(--text);text-align:center;padding:9px 20px}
+.announce b{color:var(--cyan);font-weight:650}
+.announce a{margin-left:10px;color:var(--cyan);font-weight:650;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+
+/* header */
+header{border-bottom:1px solid var(--line);background:#0b111bf0;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.brand{font-size:21px;font-weight:750;letter-spacing:-.8px}
+.brand span{color:var(--cyan)}
+nav{display:flex;gap:28px;align-items:center;font-size:14px}
+nav a:not(.btn):hover{color:var(--cyan)}
+
+/* buttons */
+.btn{display:inline-flex;justify-content:center;align-items:center;padding:13px 22px;border:1px solid var(--line-2);border-radius:8px;font-size:15px;font-weight:650;background:transparent;transition:border-color .15s,transform .15s}
+.btn:hover{border-color:var(--cyan);transform:translateY(-1px)}
+.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#07121c}
+nav .btn{padding:10px 18px;font-size:14px}
+
+/* hero */
+.hero{padding:80px 0 64px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+h1{font-size:clamp(38px,5vw,62px);line-height:1.08;letter-spacing:-2.4px;font-weight:750;margin-bottom:24px}
+.lead{max-width:540px;font-size:18px;color:var(--text)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.assure{margin-top:26px;display:grid;gap:6px;font-size:14px;color:var(--text)}
+.assure li:before{content:'✓';color:var(--cyan);margin-right:10px;font-weight:700}
+.hero-foot{font-size:13px;margin:22px 0 0}
+
+/* hero report card */
+.report{border:1px solid var(--line-2);background:var(--panel);border-radius:14px;box-shadow:0 25px 60px #0005;transform:rotate(1deg)}
+.report-top{padding:15px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;font:13px var(--mono);color:var(--muted)}
+.report-body{padding:26px}
+.tag{display:inline-block;border:1px solid #445266;border-radius:5px;padding:3px 9px;font-size:12px;color:var(--muted)}
+.report h3{font-size:22px;line-height:1.4;margin:14px 0 20px}
+.row{padding:12px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:15px;font-size:14px;color:var(--text)}
+.row b{font-weight:650;white-space:nowrap}
+.pass{color:var(--pass)}
+.fail{color:var(--fail)}
+.report-sum{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--text)}
+.report small{display:block;color:var(--muted);margin-top:14px;font-size:12px}
+@media (prefers-reduced-motion:no-preference){
+  .report .row{opacity:0;animation:rowIn .5s ease forwards}
+  .report .row:nth-of-type(1){animation-delay:.25s}
+  .report .row:nth-of-type(2){animation-delay:.6s}
+  .report .row:nth-of-type(3){animation-delay:.95s}
+  .report .row:nth-of-type(4){animation-delay:1.3s}
+  .report .report-sum{opacity:0;animation:rowIn .5s ease 1.75s forwards}
+  @keyframes rowIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+
+/* proof strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;font-size:14px;color:var(--muted)}
+.strip span{white-space:nowrap}
+.strip strong{color:var(--ink);font-weight:650}
+
+/* sections */
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+.heading{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:38px}
+.heading p{max-width:420px;margin:0}
+h2{font-size:clamp(28px,3.4vw,38px);line-height:1.2;letter-spacing:-1.2px;font-weight:720}
+
+/* why independent */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.why div{border-top:2px solid var(--line-2);padding-top:22px}
+.why h3{font-size:20px;line-height:1.35;margin-bottom:10px}
+.why p{margin:0;font-size:15px}
+
+/* packages */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);column-gap:20px;row-gap:0}
+.card{border:1px solid var(--line);border-radius:12px;padding:30px;background:var(--panel);display:flex;flex-direction:column}
+.card.featured{border-color:var(--cyan);background:linear-gradient(145deg,#142a36,#111b28 60%)}
+.badge{align-self:flex-start;justify-self:start;font-size:12px;font-weight:650;color:var(--cyan);border:1px solid #2b5560;border-radius:99px;padding:3px 12px;margin-bottom:16px}
+.card.featured .badge{background:var(--cyan);border-color:var(--cyan);color:#07121c}
+.card h3{font-size:22px;line-height:1.3;margin-bottom:10px}
+@supports (grid-template-rows:subgrid){.card{display:grid;grid-template-rows:subgrid;grid-row:span 7}.card .price{align-self:end}}
+.card p{font-size:15px;margin:0}
+.fit{margin-top:12px!important;font-size:13px!important}
+.price{font-size:46px;line-height:1;letter-spacing:-2px;font-weight:700;margin:24px 0 0}
+.price small{display:block;font-size:14px;letter-spacing:0;color:var(--muted);font-weight:400;margin-top:8px}
+.price.deal{color:var(--cyan)}
+.was-row{display:flex;align-items:center;gap:12px;font-size:18px;line-height:1.2;letter-spacing:0;font-weight:500;margin-bottom:12px}
+.was-row s{color:var(--muted);text-decoration-thickness:2px}
+.save{font-size:12px;font-weight:700;color:var(--pass);background:#10281f;border:1px solid #2f6b4f;border-radius:99px;padding:3px 11px}
+.price.text{font-size:28px;letter-spacing:-.8px;line-height:1.2;padding:9px 0 0}
+.card ul{border-top:1px solid var(--line);margin:22px 0;padding-top:14px;flex:1}
+.card li{font-size:14px;color:var(--text);padding:6px 0}
+.card li:before{content:'✓';color:var(--cyan);margin-right:10px}
+.help-pick{margin:28px 0 0;font-size:15px;color:var(--text)}
+.help-pick a{color:var(--cyan);text-decoration:underline;text-underline-offset:4px}
+.note{font-size:13px;margin:14px 0 0}
+
+/* sample report */
+.sample{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.sample h2{margin-bottom:20px}
+.includes{margin:26px 0 0;display:grid;gap:14px}
+.includes li{padding-left:30px;position:relative;font-size:15px;color:var(--text)}
+.includes li:before{content:'✓';position:absolute;left:0;color:var(--cyan);font-weight:700}
+.includes b{color:var(--ink);font-weight:650}
+.ticket{border:1px solid var(--line-2);border-radius:14px;background:var(--panel);overflow:hidden}
+.ticket-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 12px;padding:14px 24px;border-bottom:1px solid var(--line);font:13px var(--mono);color:var(--muted)}
+.ticket-body{padding:26px 24px 8px}
+.ticket h3{font-size:22px;line-height:1.35;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1px solid #445266;border-radius:5px;padding:3px 9px;font-size:12px;color:var(--muted)}
+.chip.sev{color:var(--fail);border-color:#6b4a40}
+.ticket dl{margin:0}
+.ticket .blk{padding:18px 0;margin:0;border-top:1px solid var(--line)}
+.ticket dt{font-size:13px;font-weight:650;color:var(--ink);margin-bottom:6px}
+.ticket dd{margin:0;font-size:14px;color:var(--text)}
+.ticket ol{margin:0;padding-left:20px;font-size:14px;color:var(--text)}
+.ticket ol li{padding:2px 0}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vs dl{padding:12px 14px;border-radius:8px;background:#0b141f;border-left:3px solid var(--pass)}
+.vs dl.bad{border-left-color:var(--fail)}
+.vs dt{margin-bottom:4px}
+.vs .ok dt{color:var(--pass)}
+.vs .bad dt{color:var(--fail)}
+.ticket small{display:block;padding:14px 0 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.step{border-top:1px solid var(--line-2);padding-top:22px}
+.num{font:14px var(--mono);color:var(--cyan)}
+.step h3{font-size:20px;margin:14px 0 10px}
+.step p{font-size:15px;margin:0}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about h2{margin-bottom:22px}
+.skills{margin:6px 0 0;border-top:1px solid var(--line)}
+.skills li{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.skills b{color:var(--ink);font-weight:650}
+.proof-links{display:grid;gap:12px;margin-top:22px}
+.proof-link{display:block;border:1px solid var(--line);border-radius:9px;padding:18px 22px;background:var(--panel);transition:border-color .15s}
+.proof-link:hover{border-color:var(--cyan)}
+.proof-link strong{display:block}
+.proof-link span{font-size:14px;color:var(--muted)}
+
+/* faq */
+.faq h2{margin-bottom:24px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600}
+details p{padding-top:12px;margin:0;font-size:15px;max-width:760px}
+
+/* closing CTA */
+.contact{padding:72px 0;display:flex;justify-content:space-between;align-items:center;gap:40px}
+.contact h2{margin-bottom:14px}
+.contact p{margin:0;max-width:580px}
+.contact-actions{display:grid;gap:12px;justify-items:stretch;text-align:center;min-width:240px}
+.contact-actions a:last-child{font-size:14px;color:var(--muted)}
+.contact-actions a:last-child:hover{color:var(--cyan)}
+footer{padding:26px 0 34px;display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--muted)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px;padding:56px 0 48px}
+  .report{transform:none;max-width:560px}
+  .strip{display:grid;grid-template-columns:1fr 1fr}
+  .strip span{white-space:normal}
+  .why,.steps,.cards{grid-template-columns:1fr}
+  .card{margin-bottom:20px}
+  .why{gap:30px}
+  .heading,.contact{align-items:flex-start;flex-direction:column;gap:20px}
+  .sample,.about{grid-template-columns:1fr;gap:36px}
+  .contact-actions{min-width:0;width:100%}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  nav .hide-sm{display:none}
+  .nav{min-height:68px}
+  section{padding:54px 0}
+  .card{padding:24px}
+  .vs{grid-template-columns:1fr}
+  .ticket-body{padding:22px 18px 6px}
+  .report-body{padding:20px}
+  footer{flex-direction:column;gap:8px}
+  .actions .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="announce intro-only"><b>Introductory price:</b> Launch Readiness Testing is $300 instead of $450.<a href="#services">See the package</a></div>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Phillip QA home">phillip<span>qa.</span></a>
+    <nav aria-label="Main navigation">
+      <a class="hide-sm" href="#services">Services</a>
+      <a class="hide-sm" href="#sample">Sample report</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="https://phillipqa.github.io/phillipqaportfolio/">Portfolio</a>
+      <a class="btn" href="inquiry.html">Discuss your project</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <h1>I find the bugs your customers would find first.</h1>
+      <p class="lead">Independent manual, API and regression testing for agencies and software teams. You get reproducible bug reports your developers can act on straight away, and fixes verified before you ship.</p>
+      <div class="actions">
+        <a class="btn primary" href="inquiry.html">Get a scoped proposal</a>
+        <a class="btn" href="#sample">See a sample bug report</a>
+      </div>
+      <ul class="assure">
+        <li>Proposal before any testing begins</li>
+        <li>Scope and price agreed up front</li>
+        <li>Findings in your issue tracker or a shared report</li>
+      </ul>
+      <p class="hero-foot">Remote from the Philippines (UTC+8). Project-based or monthly support.</p>
+    </div>
+
+    <div class="report" aria-label="Illustrative test run">
+      <div class="report-top"><span>release-review / checkout</span><span>Sample run</span></div>
+      <div class="report-body">
+        <span class="tag">Illustrative example</span>
+        <h3>The happy path is only part of the story.</h3>
+        <div class="row"><span>Complete a standard order</span><b class="pass">✓ Pass</b></div>
+        <div class="row"><span>Recover from a declined payment</span><b class="fail">✕ Fail</b></div>
+        <div class="row"><span>Apply an expired discount</span><b class="pass">✓ Pass</b></div>
+        <div class="row"><span>Retry without duplicate orders</span><b class="fail">✕ Fail</b></div>
+        <p class="report-sum">2 passed, 2 failed. Both failures sit in payment recovery, the path real customers hit when something goes wrong.</p>
+        <small>Each failure becomes a report with steps, expected vs. actual results, and evidence.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <span><strong>5+ years</strong> in software QA</span>
+    <span><strong>Manual</strong> &amp; regression testing</span>
+    <span><strong>API</strong> testing with Postman</span>
+    <span><strong>SQL</strong> data validation</span>
+    <span><strong>Business analysis</strong> background</span>
+  </div>
+
+  <!-- WHY INDEPENDENT -->
+  <section aria-labelledby="why-h">
+    <div class="heading">
+      <h2 id="why-h">Why bring in an independent tester?</h2>
+      <p>Your team knows how the product should work. That is exactly why someone else finds what they miss.</p>
+    </div>
+    <div class="why">
+      <div>
+        <h3>Fresh eyes find different bugs</h3>
+        <p>The people who build a feature test the path they had in mind. I test the paths your customers actually take: declined payments, unexpected inputs, retries and other browsers.</p>
+      </div>
+      <div>
+        <h3>Your team keeps building</h3>
+        <p>While I test and document, your developers stay on the roadmap. They get reports they can act on, not a vague “it's broken.”</p>
+      </div>
+      <div>
+        <h3>You know what was covered</h3>
+        <p>Every engagement ends with a coverage summary: what I tested, what I found and what risk remains. You get an honest picture, not a rubber stamp.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="services" aria-labelledby="services-h">
+    <div class="heading">
+      <h2 id="services-h">Catch bugs. Ship with confidence.</h2>
+      <p>Start with one workflow, test a whole launch, or keep support in place between releases. Prices in USD.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <span class="badge">Best first step</span>
+        <h3>Launch Confidence Review</h3>
+        <p>A low-risk way to see how I work. I test one important workflow and send back clear, prioritized findings.</p>
+        <p class="fit">Good for: checkout, sign-up, booking or any flow your customers depend on.</p>
+        <div class="price">$120 <small>per project</small></div>
+        <ul>
+          <li>Up to 5 testing hours</li>
+          <li>One agreed customer workflow</li>
+          <li>Two browser/device configurations</li>
+          <li>Reproducible bug reports</li>
+          <li>Coverage and findings summary</li>
+        </ul>
+        <a class="btn" href="inquiry.html?offer=0">Check my key workflow</a>
+      </article>
+
+      <article class="card featured">
+        <span class="badge">Recommended for launches</span>
+        <h3>Launch Readiness Testing</h3>
+        <p>Three key workflows tested, regression risks reviewed and your fixes verified, all within the included hours.</p>
+        <p class="fit">Good for: an upcoming release where a missed bug would be expensive.</p>
+        <div class="price reg-only">$450 <small>starting price</small></div>
+        <div class="price deal intro-only">
+          <div class="was-row"><s>$450</s><span class="save">Save $150</span></div>
+          $300
+          <small>introductory starting price</small>
+        </div>
+        <ul>
+          <li>Up to 15 testing hours</li>
+          <li>Three agreed workflows</li>
+          <li>Functional &amp; regression checks</li>
+          <li>Test checklist and bug reports</li>
+          <li>One fix-verification round*</li>
+        </ul>
+        <a class="btn primary" href="inquiry.html?offer=1">Get the $300 price</a>
+      </article>
+
+      <article class="card">
+        <span class="badge">For teams shipping regularly</span>
+        <h3>Your Ongoing QA Partner</h3>
+        <p>Steady testing support during and between releases: new features, regression checks and fix verification.</p>
+        <p class="fit">Good for: teams that ship often and want a tester on call.</p>
+        <div class="price text">Custom quote <small>after we agree on scope</small></div>
+        <ul>
+          <li>Testing hours tailored to your needs</li>
+          <li>New feature &amp; regression testing</li>
+          <li>Priorities agreed each month</li>
+          <li>Bug reports and fix verification</li>
+          <li>Release testing summaries</li>
+        </ul>
+        <a class="btn" href="inquiry.html?offer=2">Discuss ongoing support</a>
+      </article>
+    </div>
+
+    <p class="help-pick">Not sure which fits? <a href="inquiry.html">Tell me about your release</a> and I'll suggest a starting scope.</p>
+    <p class="note">Scope, access, devices and delivery dates are agreed before work begins. *Fix verification uses the included hours. Development fixes and additional work are quoted separately. Ongoing support terms are agreed in your proposal.</p>
+  </section>
+
+  <!-- SAMPLE BUG REPORT -->
+  <section id="sample" aria-labelledby="sample-h">
+    <div class="sample">
+      <div>
+        <h2 id="sample-h">This is what you get back.</h2>
+        <p>Testing is only useful if your developers can act on the results. Every issue I report follows the same clear structure, so nobody has to ask “what exactly did you click?”</p>
+        <ul class="includes">
+          <li><b>Exact steps to reproduce</b><br>So the bug can be seen again in minutes.</li>
+          <li><b>Expected vs. actual result</b><br>So it's clear what is wrong and what “fixed” looks like.</li>
+          <li><b>Severity and customer impact</b><br>So your team can decide what to fix first.</li>
+          <li><b>Supporting evidence</b><br>Screenshots, recordings or logs, where relevant.</li>
+          <li><b>Fix-verification notes</b><br>So retesting is quick and unambiguous.</li>
+        </ul>
+      </div>
+
+      <article class="ticket" aria-label="Illustrative bug report">
+        <div class="ticket-top"><span>BUG-014 · Checkout</span><span>Illustrative example</span></div>
+        <div class="ticket-body">
+          <h3>Retrying after a declined card creates a duplicate order</h3>
+          <div class="chips">
+            <span class="chip sev">Severity: High</span>
+            <span class="chip">Staging build</span>
+            <span class="chip">Chrome · Windows 11</span>
+          </div>
+
+          <dl class="blk">
+            <dt>Steps to reproduce</dt>
+            <dd>
+              <ol>
+                <li>Add any item to the cart and go to checkout.</li>
+                <li>Pay with a test card that is declined.</li>
+                <li>When the decline message appears, pay again with a valid test card.</li>
+                <li>Open the order history.</li>
+              </ol>
+            </dd>
+          </dl>
+
+          <div class="blk vs">
+            <dl class="ok"><dt>Expected</dt><dd>One order, charged once.</dd></dl>
+            <dl class="bad"><dt>Actual</dt><dd>Two orders: one “Payment failed” and one “Paid.”</dd></dl>
+          </div>
+
+          <dl class="blk">
+            <dt>Impact</dt>
+            <dd>Customers see an order they never completed, which is likely to generate support tickets and may reserve stock twice.</dd>
+          </dl>
+
+          <dl class="blk">
+            <dt>Evidence</dt>
+            <dd>Screen recording and network log attached.</dd>
+          </dl>
+
+          <dl class="blk">
+            <dt>To verify the fix</dt>
+            <dd>Repeat the steps and confirm a single order and a single charge.</dd>
+          </dl>
+          <small>Example written to show the format. It is not taken from a client project.</small>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section aria-labelledby="process-h">
+    <div class="heading">
+      <h2 id="process-h">Clear scope. Useful findings.</h2>
+      <p>No commitment to inquire. You approve a proposal before any testing begins.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01 / Agree the coverage</span>
+        <h3>Your product, your priorities</h3>
+        <p>We agree on workflows, expected behavior, test access, devices and the time available.</p>
+      </div>
+      <div class="step">
+        <span class="num">02 / Test &amp; document</span>
+        <h3>Reports built for developers</h3>
+        <p>I test normal and edge-case scenarios, then report issues with steps, impact and supporting evidence.</p>
+      </div>
+      <div class="step">
+        <span class="num">03 / Review &amp; verify</span>
+        <h3>Know what is ready</h3>
+        <p>You receive a coverage summary and the remaining risks. Fixes are verified within the agreed scope.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about" aria-labelledby="about-h">
+    <div>
+      <h2 id="about-h">Hi, I'm Phillip.</h2>
+      <p>I'm a software QA professional with more than five years of testing experience and a background in business analysis. That background helps me read requirements closely and turn them, along with reported issues, into practical test scenarios and clear findings.</p>
+      <p>My work covers functional, regression, API and database testing. I'm also building my automation skills through Playwright portfolio projects.</p>
+      <ul class="skills" aria-label="Skills">
+        <li><b>Functional &amp; regression</b><span>Manual, scenario-based</span></li>
+        <li><b>API testing</b><span>Postman · REST workflows</span></li>
+        <li><b>Database checks</b><span>SQL · PostgreSQL</span></li>
+        <li><b>Automation</b><span>Playwright (portfolio projects)</span></li>
+      </ul>
+    </div>
+    <div class="proof-links">
+      <a class="proof-link" href="https://phillipqa.github.io/phillipqaportfolio/"><strong>Explore my QA portfolio</strong><span>Experience and projects</span></a>
+      <a class="proof-link" href="https://phillipqa.github.io/phillipqaportfolio/#test-lab"><strong>Try the Live QA Test Lab</strong><span>Open it on my portfolio</span></a>
+      <a class="proof-link" href="https://github.com/PhillipQA/playwright-automation-project"><strong>Playwright automation project</strong><span>View the test code and project setup on GitHub</span></a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">A few practical details.</h2>
+    <details>
+      <summary>What do I need to provide?</summary>
+      <p>A staging or test environment, test accounts, requirements or expected behavior, and a list of the workflows that matter most. API and database checks require the relevant access.</p>
+    </details>
+    <details>
+      <summary>Can you work with my developers or agency?</summary>
+      <p>Yes. I can document findings in your existing issue tracker or an agreed report format, and coordinate fix verification with your team.</p>
+    </details>
+    <details>
+      <summary>Do you fix the bugs or guarantee a bug-free release?</summary>
+      <p>These packages cover testing and reporting. Your development team handles fixes. Testing reduces uncertainty within the agreed coverage; it cannot guarantee that every defect will be found.</p>
+    </details>
+    <details>
+      <summary>Can I request API testing or automation?</summary>
+      <p>Yes. API and SQL checks can be included when they fit the scope and access available. Automation setup is discussed and quoted separately after reviewing your application.</p>
+    </details>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <div class="contact" id="contact">
+    <div>
+      <h2>What are you shipping?</h2>
+      <p>Tell me about your application, the workflows you want checked and your target release date. I'll suggest a sensible starting scope and send a proposal before any testing begins.</p>
+    </div>
+    <div class="contact-actions">
+      <a class="btn primary" href="inquiry.html">Discuss your project</a>
+      <a href="mailto:pvcabalo@gmail.com">or email pvcabalo@gmail.com</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Phillip Val Cabalo · Independent QA</span>
+  <a href="mailto:pvcabalo@gmail.com">pvcabalo@gmail.com</a>
+</footer>
+</body>
+</html>
