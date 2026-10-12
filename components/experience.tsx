@@ -1,6 +1,26 @@
 import { SectionHeading } from "@/components/section-heading"
 
-const roles = [
+type Role = {
+  company: string
+  title: string
+  period: string
+  points: string[]
+  featured?: boolean
+}
+
+const roles: Role[] = [
+  {
+    company: "TestForge IT Consultancy",
+    title: "Freelance Automation Tester",
+    period: "1 year · Freelance",
+    featured: true,
+    points: [
+      "Created and maintained automated tests using Playwright and TypeScript.",
+      "Performed functional and regression testing for key web application workflows.",
+      "Reported defects with clear reproduction steps, screenshots, and expected results.",
+      "Retested fixes and integrated automated tests into GitHub Actions.",
+    ],
+  },
   {
     company: "iRipple",
     title: "Business Analyst (Promoted from Software QA Specialist)",
@@ -47,11 +67,14 @@ export function Experience() {
   return (
     <section id="experience" className="border-b border-border">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-        <SectionHeading index="05" title="Experience" subtitle="Five years in QA, now extending into business analysis" />
+        <SectionHeading index="05" title="Experience" subtitle="Freelance automation testing, backed by software QA and business analysis experience" />
         <ol className="mt-8 space-y-6 border-l border-border pl-6">
           {roles.map((role, i) => (
-            <li key={`${role.company}-${role.title}-${i}`} className="relative">
-              <span className="absolute -left-[1.6875rem] top-1.5 h-3 w-3 rounded-full border-2 border-primary bg-background" />
+            <li
+              key={`${role.company}-${role.title}-${i}`}
+              className={`relative ${role.featured ? "rounded-lg border border-accent/30 bg-accent/5 p-5" : ""}`}
+            >
+              <span className={`absolute -left-[1.6875rem] h-3 w-3 rounded-full border-2 border-primary bg-background ${role.featured ? "top-6" : "top-1.5"}`} aria-hidden="true" />
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-lg font-semibold text-foreground">
                   {role.title}

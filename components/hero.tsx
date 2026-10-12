@@ -14,13 +14,14 @@ export function Hero() {
     <section id="top" className="border-b border-border">
       <div className="mx-auto grid max-w-5xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center">
         <div>
-          <p className="text-sm font-medium text-accent">Phillip Val Cabalo · QA Engineer</p>
+          <p className="text-sm font-medium text-accent">Phillip Val Cabalo · QA &amp; Automation Tester</p>
           <h1 className="mt-3 text-balance text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
             I find the defects before your users do, and automate the checks that keep them from coming back.
           </h1>
           <p className="mt-5 max-w-xl text-pretty leading-relaxed text-muted-foreground">
-            Five-plus years testing web applications: Playwright and TypeScript automation, API testing, SQL data
-            validation, and regression cycles. Everything on this page is real work you can open, read, or run.
+            Five-plus years in software QA, including one year of freelance automation testing at TestForge IT
+            Consultancy. I build Playwright and TypeScript tests, check key user flows, and report defects with
+            clear steps and evidence.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="#test-lab" className="rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
@@ -31,8 +32,8 @@ export function Hero() {
             </a>
           </div>
           <p className="mt-6 max-w-xl border-l-2 border-accent pl-4 text-sm leading-relaxed text-muted-foreground">
-            I&apos;m also a Business Analyst (promoted from QA in 2025). I write the acceptance criteria I test against,
-            so my test cases start from what the requirement actually meant.
+            My Business Analyst background helps me turn requirements and acceptance criteria into practical
+            test scenarios, with functional, API, and SQL checks where the workflow needs them.
           </p>
         </div>
 

@@ -26,7 +26,7 @@ export function Contact() {
   return (
     <section id="contact">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-        <SectionHeading index="06" title="Contact" subtitle="Hiring for QA or test automation? Let’s talk about how I can help your team ship with confidence" />
+        <SectionHeading index="06" title="Contact" subtitle="Hiring for QA or looking for freelance automation support? Let’s discuss your testing needs and release goals" />
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {links.map((l) => (
             <a

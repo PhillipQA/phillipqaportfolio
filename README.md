@@ -1,4 +1,4 @@
-# Phillip Val Cabalo — QA Engineer Portfolio
+# Phillip Val Cabalo — QA & Automation Tester Portfolio
 
 Showcasing **test automation, functional testing, API validation, data verification, CI execution, and real-time Playwright reporting**.
 
@@ -11,7 +11,18 @@ The portfolio is designed to do more than describe testing experience: visitors 
 
 ## Portfolio Focus
 
-This project presents my work primarily as a **QA Engineer / Test Automation Engineer**, with Business Analysis experience as an additional strength.
+This project presents my work as a **QA & Automation Tester**, including **one year of freelance automation testing at TestForge IT Consultancy**, with Business Analysis experience as an additional strength.
+
+### Freelance Automation Experience
+
+**Freelance Automation Tester — TestForge IT Consultancy**
+
+**Duration:** 1 year, freelance
+
+- Created and maintained automated tests using Playwright and TypeScript.
+- Performed functional and regression testing for key web application workflows.
+- Reported defects with reproduction steps, screenshots, and expected results.
+- Retested fixes and integrated automated tests into GitHub Actions.
 
 ### QA & Test Automation
 - Playwright + TypeScript automation
@@ -510,4 +521,4 @@ The three layers are intentionally separated so UI changes, server-side credenti
 
 ## About
 
-I am a QA professional with experience across manual testing, functional and regression testing, test automation, API validation, SQL/data verification, and UAT. My Business Analyst experience gives me additional context around requirements, acceptance criteria, stakeholder workflows, and traceability—allowing me to test not only whether a feature works, but whether it solves the intended business requirement.
+I am a QA and automation tester with one year of freelance automation experience at TestForge IT Consultancy. My work covers Playwright and TypeScript automation, functional and regression testing, reproducible defect reporting, fix verification, API checks, SQL/data validation, and UAT. My Business Analyst background helps me turn requirements, acceptance criteria, and stakeholder workflows into practical test coverage.

@@ -15,7 +15,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
         <a href="#top" className="font-semibold tracking-tight">
           Phillip Val Cabalo
-          <span className="ml-2 hidden font-normal text-muted-foreground sm:inline">QA Engineer</span>
+          <span className="ml-2 hidden font-normal text-muted-foreground sm:inline">QA &amp; Automation</span>
         </a>
         <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
           {nav.map((item) => (

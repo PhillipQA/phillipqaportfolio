@@ -16,9 +16,9 @@ const geistMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Phillip Val Cabalo — QA Engineer | Test Automation, API & Data Validation',
+  title: 'Phillip Val Cabalo — QA & Automation Tester | Playwright & TypeScript',
   description:
-    'Portfolio of Phillip Val Cabalo, a QA engineer specializing in Playwright + TypeScript automation, API testing, SQL data validation, and regression testing. Also a Business Analyst who writes the requirements he tests against.',
+    'Phillip Val Cabalo: QA and automation tester with one year of freelance automation experience at TestForge IT Consultancy. Playwright, TypeScript, regression testing, GitHub Actions, API checks, and SQL data validation.',
   generator: 'Next.js',
 }
 
