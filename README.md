@@ -55,7 +55,10 @@ Visitors can:
 3. See pass, fail, running, and browser-suite progress.
 4. Follow a compact CLI-style execution console.
 5. Open the GitHub Actions run.
-6. Inspect the generated Playwright HTML report after completion.
+6. Filter results by browser/suite and pass, fail, running, or skipped status.
+7. Expand individual tests to inspect their filename, retry, duration, and error details.
+8. Reconnect without losing the active run; sequential polling covers interrupted streams.
+9. Inspect the generated Playwright HTML report after completion, including delayed artifact uploads.
 
 The browser never receives GitHub credentials.
 
@@ -305,6 +308,14 @@ Open:
 ```text
 http://localhost:3000
 ```
+
+### Live QA Lab checks
+
+```bash
+node --test tests/live-qa-controller.test.mjs
+```
+
+These checks cover dispatch protection, streaming, polling recovery, report availability, cooldowns, and status grouping without starting GitHub runs.
 
 ### Production build
 
