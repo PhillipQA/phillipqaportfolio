@@ -91,7 +91,7 @@ const projects: Project[] = [
       "OCR-assisted DRF field extraction and template population",
       "Reset, validation, auditability, and error-handling requirements",
     ],
-    links: [{ label: "See related artifacts", href: "https://batracker.phillipqa.com/", icon: Bot }],
+    links: [{ label: "See related artifacts", href: "#artifacts", icon: Bot }],
   },
   {
     id: "04",
@@ -106,7 +106,7 @@ const projects: Project[] = [
       "Document workflows for BRD, FSD, DRF, sign-off, and DocHub handoff",
       "Per-user Gmail / Discord communication workflows and integrations",
     ],
-    links: [{ label: "Private case study", href: "#artifacts", icon: LockKeyhole }],
+    links: [{ label: "Private case study", href: "https://batracker.phillipqa.com/", icon: LockKeyhole }],
   }
 ]
 
