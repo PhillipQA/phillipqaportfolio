@@ -1,4 +1,5 @@
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === "true" ? "/phillipqaportfolio" : "")
+// Empty on phillipqa.com. Set NEXT_PUBLIC_BASE_PATH only when the site is published under a sub-path.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 const nav = [
   { label: "Test lab", href: "#test-lab" },

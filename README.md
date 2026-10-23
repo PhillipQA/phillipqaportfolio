@@ -4,7 +4,7 @@ Showcasing **test automation, functional testing, API validation, data verificat
 
 The portfolio is designed to do more than describe testing experience: visitors can trigger a public Playwright regression suite, watch test results update live, and open the resulting Playwright HTML report.
 
-**Live portfolio:** https://phillipqa.github.io/phillipqaportfolio/  
+**Live portfolio:** https://phillipqa.com/  
 **Playwright repository:** https://github.com/PhillipQA/playwright-automation-project
 
 ---
@@ -379,7 +379,7 @@ Environment variables:
 | `GITHUB_REPO` | Playwright repository name |
 | `GITHUB_WORKFLOW` | Workflow file to dispatch |
 | `GITHUB_REF` | Branch used by the workflow |
-| `ALLOWED_ORIGINS` | Allowed portfolio origins |
+| `ALLOWED_ORIGINS` | Allowed portfolio origins, for example `https://phillipqa.com,https://www.phillipqa.com` |
 | `IP_COOLDOWN_MS` | Per-IP public-run cooldown |
 | `GLOBAL_COOLDOWN_MS` | Global public-run cooldown |
 | `TELEMETRY_TOKEN` | Shared secret for Playwright telemetry |
@@ -459,11 +459,13 @@ Deploy to GitHub Pages
 
 `NEXT_PUBLIC_QA_RUNNER_URL` is injected during the GitHub Actions build.
 
-The Next.js configuration automatically applies the repository base path when building on GitHub Actions, allowing the site to work correctly at:
+The site is served from the root of its custom domain, so the Next.js configuration uses no base path:
 
 ```text
-https://phillipqa.github.io/phillipqaportfolio/
+https://phillipqa.com/
 ```
+
+To publish it under a sub-path instead (for example a GitHub project page at `https://phillipqa.github.io/phillipqaportfolio/`), build with `NEXT_PUBLIC_BASE_PATH=/phillipqaportfolio`.
 
 ---
 
@@ -523,7 +525,7 @@ The three layers are intentionally separated so UI changes, server-side credenti
 
 ## Related Links
 
-- **Portfolio:** https://phillipqa.github.io/phillipqaportfolio/
+- **Portfolio:** https://phillipqa.com/
 - **GitHub:** https://github.com/PhillipQA
 - **Playwright automation:** https://github.com/PhillipQA/playwright-automation-project
 - **LinkedIn:** https://www.linkedin.com/in/pcabalo/
