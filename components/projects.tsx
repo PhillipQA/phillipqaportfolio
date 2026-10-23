@@ -91,7 +91,7 @@ const projects: Project[] = [
       "OCR-assisted DRF field extraction and template population",
       "Reset, validation, auditability, and error-handling requirements",
     ],
-    links: [{ label: "See related artifacts", href: "#artifacts", icon: Bot }],
+    links: [{ label: "See related artifacts", href: "https://batracker.phillipqa.com/", icon: Bot }],
   },
   {
     id: "04",
