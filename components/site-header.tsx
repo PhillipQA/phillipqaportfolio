@@ -1,10 +1,14 @@
 // Empty on phillipqa.com. Set NEXT_PUBLIC_BASE_PATH only when the site is published under a sub-path.
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
+// The QA Services page is switched off for now. To bring it back, move unpublished/services to
+// public/services and set this to true (see unpublished/README.md).
+const SHOW_SERVICES = false
+
 const nav = [
   { label: "Test lab", href: "#test-lab" },
   { label: "Projects", href: "#projects" },
-  { label: "QA Services", href: `${basePath}/services/` },
+  ...(SHOW_SERVICES ? [{ label: "QA Services", href: `${basePath}/services/` }] : []),
   { label: "Skills", href: "#expertise" },
   { label: "Artifacts", href: "#artifacts" },
   { label: "Experience", href: "#experience" },
