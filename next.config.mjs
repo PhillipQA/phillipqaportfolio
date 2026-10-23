@@ -1,18 +1,14 @@
 /** @type {import('next').NextConfig} */
 
-// When building on GitHub Actions, GITHUB_REPOSITORY looks like "username/repo-name".
-// Project pages (username.github.io/repo-name) are served from a sub-path, so we need
-// to tell Next.js about that sub-path. User/org pages (a repo literally named
-// "username.github.io") are served from the domain root, so no basePath is needed.
-const isGithubActions = process.env.GITHUB_ACTIONS === 'true'
-let basePath = ''
-
-if (isGithubActions && process.env.GITHUB_REPOSITORY) {
-  const repoName = process.env.GITHUB_REPOSITORY.split('/')[1]
-  if (repoName && !repoName.endsWith('.github.io')) {
-    basePath = `/${repoName}`
-  }
+// The site is served from the root of https://phillipqa.com, so there is no base path.
+// To publish it under a sub-path again (for example a GitHub project page such as
+// https://phillipqa.github.io/phillipqaportfolio/), build with
+// NEXT_PUBLIC_BASE_PATH=/phillipqaportfolio.
+const configuredBasePath = (process.env.NEXT_PUBLIC_BASE_PATH || '').trim().replace(/\/+$/, '')
+if (configuredBasePath && !configuredBasePath.startsWith('/')) {
+  throw new Error('NEXT_PUBLIC_BASE_PATH must start with "/", for example /phillipqaportfolio.')
 }
+const basePath = configuredBasePath
 
 const nextConfig = {
   output: 'export',
